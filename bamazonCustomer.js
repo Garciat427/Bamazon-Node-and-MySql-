@@ -14,28 +14,29 @@ var connection = mysql.createConnection({
 connection.connect(function(err) {
   if (err) throw err;
   console.log("connected as id " + connection.threadId + "\n");
-  createProduct();
+  readAllProducts();
 });
 
 //Functions
-function readProducts() {
-     console.log("Selecting all products...\n");
+function readAllProducts() {
+     console.log("\n=================== PRODUCT CATALOUGE ====================");
+     console.log("==========================================================");
      connection.query("SELECT * FROM products", function(err, res) {
        if (err) throw err;
-       // Log all results of the SELECT statement
-       console.log(res);
+       var products = res;
+       for (var i = 0; i < products.length; i++){
+          console.log("||  Item ID: " + products[i].item_id + "  ||  Item Name: " + products[i].product_name + "\n\tDepartment Name: " + products[i].department_name + "\n\tItem Price: $" + products[i].price + "\tItem Stock: " + products[i].stock_quantity);
+          console.log ("----------------------------------------------------------");
+       }
        connection.end();
      });
    }
-   
-
-readProducts()
 //Inquirer
 /* inquirer
   .prompt([
     {
-      name: "department",
-      message: "Please select depart",
+      name: "selection",
+      message: "Enter ",
       type: "list",
       choices: ["Show", "Actor"]
     }
