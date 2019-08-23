@@ -25,21 +25,21 @@ INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ("Animal Crackers", "Food", 1.25, 20);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("vanilla", 2.50, 100, );
+VALUES ("White TShirt", "Clothing", 5.00, 10);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("vanilla", 2.50, 100, );
+VALUES ("Black Hoodie", "Clothing", 15.00, 5);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("vanilla", 2.50, 100, );
+VALUES ("Drill", "Tools", 150.00, 5);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("vanilla", 2.50, 100, );
+VALUES ("Hammer", "Tools", 50.00, 5);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("vanilla", 2.50, 100, );
+VALUES ("Desktop PC", "Electronics", 1000.00, 3);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("vanilla", 2.50, 100, );
+VALUES ("Laptop PC", "Electronics", 1100.00, 3);
 
 
