@@ -87,7 +87,6 @@ function outOfStock() {
     }
   ])
   .then(function(answer) {
-    //connection.end();
     readAllProducts();
   });
 }
