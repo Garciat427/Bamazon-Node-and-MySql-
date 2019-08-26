@@ -176,6 +176,7 @@ function updateProduct(newQuantity, selItem) {
 };
 
 function mainMenu(){
+    console.clear();
     console.log("\n=================== Manager Menu ====================\n==========================================================")
     inquirer
         .prompt([
@@ -190,18 +191,22 @@ function mainMenu(){
             var choice = answer.selection;
             switch (choice){
             case ("View Products on sale") :
+                    console.clear();
                 readAllProducts(true);
                 break;
                 
             case ("View Low Inventory") :
+                    console.clear();
                 readLowProducts();
                 break;
             
             case ("Add To Inventory") :
+                    console.clear();
                 readAllProducts(false);
                 break;
             
             case ("Add New Product") :
+                    console.clear();
                 addItem();
                 break
             
