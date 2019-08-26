@@ -37,7 +37,7 @@ function contFunction(){
 }
 
 //Reads all products then either continues or proceeds to stock items
-function readAllProducts(cont) {
+function readAllDepts() {
      console.clear();
      console.log("\n=================== DEPARTMENT STATUS ====================");
      console.log("==========================================================");
@@ -54,38 +54,31 @@ function readAllProducts(cont) {
 
 
 
-function addItem(){
+function addDept(){
     inquirer
     .prompt([
         {
-            name: "itemName",
-            message: "What is the Name of the Item?",
+            name: "deptName",
+            message: "What is the Name of the Department?",
             type: "input"
         },
         {
-            name: "departmentName",
-            message: "What is the Name of the department of Item?",
-            type: "input"
-        },
-        {
-            name: "price",
-            message: "What is the price of the Item?",
+            name: "over_head",
+            message: "What is the over head costs of the department?",
             type: "number"
         },
         {
-            name: "stock",
-            message: "How many stock are you adding?",
+            name: "sales",
+            message: "What is the current amount of product sales",
             type: "number"
         }
     ])
     .then(function(answer) {
-        var query = connection.query("INSERT INTO products SET ?",
+        var query = connection.query("INSERT INTO departments SET ?",
         {
-            product_name : answer.itemName,
-            department_name : answer.departmentName,
-            price : answer.price,
-            stock_quantity : answer.stock
-
+               department_name : answer.deptName,
+               over_head_costs : answer.over_head,
+               over_head_costs : answer.sales
         },
         function(err, res) {
             if (err) throw err;
@@ -93,7 +86,7 @@ function addItem(){
             .prompt([
             {
                 name: "confirm",
-                message: " \"" + answer.itemName + "\" sucessfully added.",
+                message: " \"" + answer.deptName + "\" sucessfully added.",
                 type: "list",
                 choices: ["Continue"]
             }
@@ -121,11 +114,11 @@ function mainMenu(){
                var choice = answer.selection;
                switch (choice){
                case ("View Product Sales by Department") :
-                    readAllProducts(true);
+                    readAllDepts();
                     break;
                     
                case ("Create New Department") :
-                    readLowProducts();
+                    addDept()
                     break;
                          
                default :
