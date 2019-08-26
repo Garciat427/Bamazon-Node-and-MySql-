@@ -94,18 +94,32 @@ function outOfStock() {
 function updateProduct(newQuantity, selItem) {
   var query = connection.query(
     "UPDATE products SET ? WHERE ?",
-    [
-      {
+    [{
         stock_quantity: newQuantity
-      },
-      {
+    },{
         item_id: selItem.item_id
-      }
-    ],
+    }],
     function(err, res) {
       if (err) throw err;
+
+      var query = connection.query(
+        "UPDATE departments SET ? WHERE ?",
+        [{
+            stock_quantity: newQuantity
+        },{
+            department_name: selItem.department_name
+        }],
+        function(err, res) {
+          if (err) throw err;
+          
+        }
+      );
       
-      inquirer
+    }
+  );
+};
+
+inquirer
         .prompt([
           {
             name: "confirm",
@@ -117,6 +131,3 @@ function updateProduct(newQuantity, selItem) {
         .then(function(answer) {
           readAllProducts();
         });
-    }
-  );
-};
