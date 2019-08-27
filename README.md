@@ -34,18 +34,18 @@
   * ### Bamazon Customer (bamazonCustomer.js)
     * Main Menu
   
-    ![](https://i.gyazo.com/09612b870ffff7816ae6ab76be7244a2.png)
+    ![](https://i.gyazo.com/725827f7734986a0b6762d75c76b6ed3.png)
     * Purchase Menu
   
     ![](https://i.gyazo.com/cbb9f0940e56d3e39a4a9db358f27305.png)
-  * ### Bamazon Manager (bamazonCustomer.js)
+  * ### Bamazon Manager (bamazonManager.js)
     * Main Menu
   
-    ![](https://i.gyazo.com/807a0d5e1ce0394e4e461ad079a60d95.png)
+    ![](https://i.gyazo.com/97b1db6ba2ba31e4bd68930d0fb2c869.png)
     * View Products For Sale
   
     ![](https://i.gyazo.com/114fb6f04127ceba8e28f0c7bcc68124.png)
-    * View Low Inventory
+    * View Low Inventory (Less than 5 Items In Stock)
     
     ![](https://i.gyazo.com/7643746ca8e81a064934db2b6ba23d9d.png)
     * Add Stock to Inventory
@@ -55,3 +55,13 @@
     
     ![](https://i.gyazo.com/2faa0d0429e9a2c2bbf4d29778e5ecad.png)
     
+  * ### Bamazon Supervisor (bamazonSupervisor.js)
+    * Main Menu
+  
+    ![](https://i.gyazo.com/f242bc5e5c2477a52700a01b00bbb9c5.png)
+    * View Product Sales by Department
+  
+    ![](https://i.gyazo.com/28b73ed28c078e68f6fa2ebf76bf7703.png)
+    * Create New Department
+    
+    ![](https://i.gyazo.com/5327736d6fff0829dac5f8c4b4554eae.png)
