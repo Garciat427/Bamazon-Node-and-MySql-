@@ -100,14 +100,14 @@ function addDept(){
 
 function mainMenu(){
      console.clear();
-     console.log("\n=================== Manager Menu ====================\n==========================================================")
+     console.log("\n=================== Supervisor Menu ====================\n==========================================================")
      inquirer
           .prompt([
                {
                name: "selection",
                message: "Please choose a selection",
                type: "list",
-               choices: ["View Product Sales by Department", "Create New Department"]
+               choices: ["View Product Sales by Department", "Create New Department", "Exit"]
                }
           ])
           .then(function(answer) {
@@ -121,7 +121,11 @@ function mainMenu(){
                     addDept()
                     break;
                          
+               case ("Exit") :
+                    connection.end();
+                    break
                default :
+                    connection.end();
                     break;
           }
      });

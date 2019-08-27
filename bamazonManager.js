@@ -95,7 +95,21 @@ function stockItem(products) {
     });
 }
 
-function addItem(){
+function pullDept(){
+    var deptArray= [];
+    var query = connection.query("SELECT department_name FROM departments",
+        function(err, res) {
+            if (err) throw (err)
+            for (var i = 0; i < res.length; i++){
+                deptArray.push(res[i].department_name)
+            }
+            var testArr = ["Choice 1", "Choice 2"]
+            addItem(deptArray);
+        }
+    );
+}
+
+function addItem(deptArr){
     inquirer
     .prompt([
         {
@@ -106,7 +120,9 @@ function addItem(){
         {
             name: "departmentName",
             message: "What is the Name of the department of Item?",
-            type: "input"
+            type: "list",
+            choices: deptArr
+
         },
         {
             name: "price",
@@ -179,37 +195,41 @@ function mainMenu(){
     console.clear();
     console.log("\n=================== Manager Menu ====================\n==========================================================")
     inquirer
-        .prompt([
-            {
-            name: "selection",
-            message: "Please choose a selection",
-            type: "list",
-            choices: ["View Products on sale", "View Low Inventory", "Add To Inventory", "Add New Product"]
-            }
-        ])
-        .then(function(answer) {
-            var choice = answer.selection;
-            switch (choice){
+    .prompt([
+        {
+        name: "selection",
+        message: "Please choose a selection",
+        type: "list",
+        choices: ["View Products on sale", "View Low Inventory", "Add To Inventory", "Add New Product", "Exit"]
+        }
+    ])
+    .then(function(answer) {
+        var choice = answer.selection;
+        switch (choice){
             case ("View Products on sale") :
-                    console.clear();
+                console.clear();
                 readAllProducts(true);
                 break;
-                
+            
             case ("View Low Inventory") :
-                    console.clear();
+                console.clear();
                 readLowProducts();
                 break;
-            
+        
             case ("Add To Inventory") :
-                    console.clear();
+                console.clear();
                 readAllProducts(false);
                 break;
-            
+        
             case ("Add New Product") :
-                    console.clear();
-                addItem();
+                console.clear();
+                pullDept();
                 break
-            
+
+            case ("Exit") :
+                connection.end();
+                break
+        
             default :
                 break;
         }
